@@ -1,0 +1,26 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "batchControl",
+      "appId": "com.ricard.batchControl",
+      "ionicCss": false,
+      "bowerPackages": [
+        "angular-dynamic-locale#~0.1.27",
+        "angular-translate#~2.11.0",
+        "angular-translate-loader-static-files#~2.11.0",
+        "localforage#~1.4.0"
+      ],
+      "platforms": [
+        "browser"
+      ],
+      "plugins": [
+        "cordova-plugin-device",
+        "cordova-plugin-dialogs",
+        "cordova-plugin-inappbrowser",
+        "cordova-plugin-splashscreen"
+      ],
+      "appModule": "batchControl",
+      "ecosystems": []
+    }
+  }
+}
