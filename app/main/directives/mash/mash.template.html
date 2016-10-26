@@ -1,5 +1,7 @@
 <div>
     <h5>Mash</h5>
+
+    <!-- Chose number of steps -->
     <div ng-if="msh.showStepsForm && !msh.showMashWatch">
         <form name="stepNum">
             <label>
@@ -11,6 +13,8 @@
             <p>Solo admitimos de 1 a 4 steps en el mash</p>
         </div>
     </div>
+
+    <!-- chose time and temperature -->
     <div ng-if="!msh.showStepsForm && !msh.showMashWatch">
         Temperatura(s)
         <form>
@@ -25,7 +29,15 @@
             <div class="submit-btn" ng-click="msh.createMashWatch()">OK</div>
         </form>
     </div>
+
+    <!-- manage steps -->
     <div ng-if="!msh.showStepsForm && msh.showMashWatch">
-        <h2>Empieza el mash</h2>
+        <div style="width: 80px;float: left;">
+            <div  ng-repeat="i in msh.getNumber(msh.numberOfSteps) track by $index"
+                  class="submit-btn"
+                  ng-click="msh.createCountDown(msh.stepState, $index)">Step {{$index + 1}} {{msh.stepState}}</div>
+
+        </div>
+        <div class="timer">{{msh.timeLeft | msToMinSec}}</div>
     </div>
 </div>

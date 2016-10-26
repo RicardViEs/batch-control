@@ -18,8 +18,13 @@
 
     <!-- build:css main/styles/app.css -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="main/styles/buttons.css">
+    <link rel="stylesheet" href="main/styles/home.css">
+    <link rel="stylesheet" href="main/styles/ionic-overide.css">
     <link rel="stylesheet" href="main/styles/login.css">
     <link rel="stylesheet" href="main/styles/main.css">
+    <link rel="stylesheet" href="main/styles/mash.css">
+    <link rel="stylesheet" href="main/styles/new-batch.css">
     <!-- endinject -->
     <!-- endbuild -->
   </head>
@@ -27,9 +32,7 @@
 
     <!-- the nav bar will be updated as we navigate between views -->
     <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
-    <ion-nav-bar class="bar-energized">
-      <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
+
     <!-- the current view will be rendered in the <ion-nav-view> directive -->
     <ion-nav-view></ion-nav-view>
 
@@ -49,6 +52,8 @@
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <script src="bower_components/localforage/dist/localforage.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -56,7 +61,12 @@
     <!-- inject:js -->
     <script src="main/main.js"></script>
     <script src="app.js"></script>
+    <script src="main/filters/msToMinSec.filter.js"></script>
+    <script src="main/directives/mash/mash.directive.js"></script>
+    <script src="main/directives/mash/mash.controller.js"></script>
+    <script src="main/controllers/new-batch.controller.js"></script>
     <script src="main/controllers/login.controller.js"></script>
+    <script src="main/controllers/home.controller.js"></script>
     <script src="main/constants/config-const.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
