@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<ion-content id="home-container">
+    <div id="sidebar">
+        <ion-list>
+            <ion-item>Lista</ion-item>
+            <ion-item>
+                <a ui-sref="new-batch">Nuevo Batch</a>
+            </ion-item>
+        </ion-list>
+    </div>
 
-</body>
-</html>
+    <div style="width: 85%;float: left;padding: 0 50px">
+        <canvas id="base" class="chart-bar"
+                chart-data="ctrl.data" chart-labels="ctrl.labels" chart-colors="ctrl.colors"
+                chart-dataset-override="ctrl.datasetOverride" >
+        </canvas>
+    </div>
+</ion-content>

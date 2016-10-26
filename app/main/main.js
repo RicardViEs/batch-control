@@ -2,7 +2,8 @@
 angular.module('main', [
   'ionic',
   'ngCordova',
-  'ui.router'
+  'ui.router',
+  'chart.js'
   // TODO: load other modules selected during generation
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -15,6 +16,18 @@ angular.module('main', [
       url: '/login',
       templateUrl: 'main/templates/login.template.html',
       controller: 'BCLogin',
+      controllerAs: 'ctrl'
+    })
+    .state('home', {
+      url: '/home',
+      templateUrl: 'main/templates/home.template.html',
+      controller: 'BCHome',
+      controllerAs: 'ctrl'
+    })
+    .state('new-batch', {
+      url: '/new-batch',
+      templateUrl: 'main/templates/new-batch.template.html',
+      controller: 'BCNewBatch',
       controllerAs: 'ctrl'
     });
 });

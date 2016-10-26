@@ -18,14 +18,40 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built & temporary main.css
 $ionicons-font-path: "../assets/fonts" !default;
 
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i,400,500i,700');
+
+// Font Variables
+$roboto-slab: 'Roboto Slab', serif;
+$open-sans: 'Open Sans', sans-serif;
+
+// Styles
+body {
+  font-family: $roboto-slab, $open-sans;
+  font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: $roboto-slab, $open-sans;
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: white !important;
+  &:hover {
+    color:darkgrey !important;
+  }
+}
+input, label {
+  font-family: $roboto-slab, $open-sans;
+  font-weight: normal;
+}
+
+.button {
+  font-family: $roboto-slab;
+  font-weight: bold;
+}
+
 // Include all of Ionic
 @import "../../bower_components/ionic/scss/ionic";
 @import "login.scss";
-
-
-html {
-  width: 100%;
-  body {
-    width: 100%;
-  }
-}
+@import "home.scss";

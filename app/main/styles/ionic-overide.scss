@@ -1,0 +1,9 @@
+.item {
+  background-color: transparent !important;
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color:darkgrey !important;
+  }
+}

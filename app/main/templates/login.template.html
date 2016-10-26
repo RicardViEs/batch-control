@@ -1,9 +1,9 @@
-<div id="login-container">
+<ion-content id="login-container">
     <div id="login-form-container">
         <form>
-            Nombre<input type="text">
-            Contraseña<input type="password">
-            <div class="submit-btn">Entrar</div>
+            Nombre<input type="text" ng-model="ctrl.user.name">
+            Contraseña<input type="password" ng-model="ctrl.user.password">
+            <div class="submit-btn" ng-click="ctrl.login()">Entrar</div>
         </form>
     </div>
-</div>
+</ion-content>
