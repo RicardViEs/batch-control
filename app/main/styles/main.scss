@@ -51,7 +51,19 @@ input, label {
   font-weight: bold;
 }
 
+.logout {
+  position: absolute;
+  right: 50px;
+  top: 0;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(white, 20%);
+  }
+}
+
 // Include all of Ionic
 @import "../../bower_components/ionic/scss/ionic";
-@import "login.scss";
-@import "home.scss";

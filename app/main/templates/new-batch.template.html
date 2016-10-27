@@ -1,4 +1,19 @@
 <ion-content id="new-batch-container">
+    <b-c-d-logout></b-c-d-logout>
     <h1>NUEVO BATCH</h1>
-    <b-c-d-mash></b-c-d-mash>
+    <form>
+        <label>
+            Nombre<input type="text">
+        </label>
+        <label>
+            Estilo<input type="text">
+        </label>
+        <label>
+            % alcohol<input type="number">
+        </label>
+        <label>
+            IBU<input type="number">
+        </label>
+    </form>
+    <b-c-d-mash ng-if=""></b-c-d-mash>
 </ion-content>

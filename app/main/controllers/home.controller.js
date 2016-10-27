@@ -4,17 +4,19 @@
   angular
     .module('batchControl')
     .controller('BCHome', BCHome);
-  function BCHome ($log) {
+  function BCHome ($log, sessionService) {
 
     var logger = $log;
     var ctrl = this;
     ctrl.init = init;
     ctrl.drawGraphic = drawGraphic;
+    ctrl.session = sessionService;
+    ctrl.user = ctrl.session.getUser();
 
     init();
 
     function init () {
-      logger.log('Welcome home');
+      logger.log('Welcome home ', ctrl.user);
       ctrl.drawGraphic();
     }
 

@@ -1,9 +1,10 @@
 <ion-content id="home-container">
+    <b-c-d-logout></b-c-d-logout>
     <div id="sidebar">
         <ion-list>
             <ion-item>Lista</ion-item>
             <ion-item>
-                <a ui-sref="new-batch">Nuevo Batch</a>
+                <a ui-sref="new-batch">Nuevo Batch {{ctrl.user}}</a>
             </ion-item>
         </ion-list>
     </div>

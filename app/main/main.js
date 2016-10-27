@@ -1,4 +1,5 @@
 'use strict';
+
 angular.module('main', [
   'ionic',
   'ngCordova',
@@ -6,6 +7,7 @@ angular.module('main', [
   'chart.js'
   // TODO: load other modules selected during generation
 ])
+
 .config(function ($stateProvider, $urlRouterProvider) {
 
   // ROUTING with ui.router
@@ -30,4 +32,24 @@ angular.module('main', [
       controller: 'BCNewBatch',
       controllerAs: 'ctrl'
     });
+})
+
+.run( function ($state, $log, sessionService) {
+
+  var user = null;
+  var logger = $log;
+  var session = sessionService;
+
+  localforage.getItem('userName', function (error, value) {
+    user = value;
+    logger.log(error);
+    if (error === null && user !== null) {
+      session.setUser(user);
+      logger.log('user ' + value + ' already logged');
+      $state.go('home');
+    } else {
+      $state.go('login');
+    }
+  });
+
 });
