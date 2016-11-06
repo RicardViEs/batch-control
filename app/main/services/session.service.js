@@ -40,11 +40,13 @@
 
     function setCurrentBatch (data) {
       currentBatch = data;
+      logger.log('batch stored in session.');
     }
 
     function getCurrentBatch () {
       return currentBatch;
     }
+
   }
 
 })();

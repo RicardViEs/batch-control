@@ -34,22 +34,34 @@ angular.module('main', [
     });
 })
 
-.run( function ($state, $log, sessionService) {
+.run( function ($state, $log, sessionService, bCLocalStorage) {
 
-  var user = null;
   var logger = $log;
   var session = sessionService;
+  var ls = bCLocalStorage;
 
-  localforage.getItem('userName', function (error, value) {
-    user = value;
-    logger.log(error);
-    if (error === null && user !== null) {
-      session.setUser(user);
-      logger.log('user ' + value + ' already logged');
-      $state.go('home');
-    } else {
-      $state.go('login');
-    }
-  });
+  if (ls.isUserInLS) {
+    logger.log('user already logged');
+    ls.getUser()
+      .then(function (success) {
+        session.setUser(success);
+        if (ls.isBatchInLS) {
+          ls.getCurrentBatch()
+            .then( function (success) {
+              session.setCurrentBatch(success);
+              $state.go('home');
+            }, function (error) {
+              logger.log(error);
+              $state.go('home');
+            });
+        } else {
+          $state.go('home');
+        }
+      }, function (error) {
+        logger.log(error);
+      });
+  } else {
+    $state.go('login');
+  }
 
 });

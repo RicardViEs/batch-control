@@ -1,19 +1,27 @@
 <ion-content id="new-batch-container">
     <b-c-d-logout></b-c-d-logout>
+    <div style="width: 250px;">
+        <div pickadate="" ng-model="ctrl.date" min-date="ctrl.date"></div>
+        <div class="selected-date">
+            Selected date is {{ctrl.date || '(no date selected)'}}
+        </div>
+    </div>
     <h1>NUEVO BATCH</h1>
-    <form>
+    <form ng-if="ctrl.showForm">
         <label>
-            Nombre<input type="text">
+            Nombre<input type="text" ng-model="ctrl.batchName">
         </label>
         <label>
-            Estilo<input type="text">
+            Estilo<input type="text" ng-model="ctrl.batchStyle">
         </label>
         <label>
-            % alcohol<input type="number">
+            % alcohol<input type="number" ng-model="ctrl.alcVol">
         </label>
         <label>
-            IBU<input type="number">
+            IBU<input type="number" ng-model="ctrl.ibu">
         </label>
+        <div class="submit-btn" ng-click="ctrl.storeBatchData()">guardar</div>
     </form>
+    <p>Nombre : {{ctrl.batch.name}}, estilo: {{ctrl.batch.style}}</p>
     <b-c-d-mash ng-if=""></b-c-d-mash>
 </ion-content>

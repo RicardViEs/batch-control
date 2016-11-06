@@ -12,6 +12,7 @@
     ctrl.drawGraphic = drawGraphic;
     ctrl.session = sessionService;
     ctrl.user = ctrl.session.getUser();
+    window.session = sessionService;
 
     init();
 
