@@ -40,7 +40,23 @@ angular.module('main', [
   var session = sessionService;
   var ls = bCLocalStorage;
 
-  if (ls.isUserInLS()) {
+  ls.isUserInLS()
+    .then( function (value) {
+      logger.log('user ' + value + ' already logged');
+      session.setUser(value);
+      ls.isBatchInLS()
+        .then( function (value) {
+          session.setCurrentBatch(value);
+          $state.go('home');
+        }, function (error) {
+          logger.log('error : ', error);
+          $state.go('home');
+        });
+    }, function (error) {
+      logger.log(error);
+      $state.go('login');
+    });
+  /*if (ls.isUserInLS()) {
     logger.log('user already logged');
     ls.getUser()
       .then(function (success) {
@@ -61,7 +77,8 @@ angular.module('main', [
         logger.log(error);
       });
   } else {
+    logger.log('no user in LS');
     $state.go('login');
-  }
+  }*/
 
 });

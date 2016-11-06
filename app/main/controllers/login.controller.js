@@ -21,7 +21,8 @@
         ctrl.ls.setUser(ctrl.user.name)
           .then(
             function (success) {
-              logger.log('going home -->', success);
+              logger.log('going home with user : ', success);
+              ctrl.session.setUser(ctrl.user.name);
               $state.go('home');
             }, function (error) {
               logger.log(error);

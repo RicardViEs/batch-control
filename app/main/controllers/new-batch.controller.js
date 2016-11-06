@@ -17,17 +17,19 @@
     ctrl.showForm = true;
     ctrl.session = sessionService;
     ctrl.ls = bCLocalStorage;
+    ctrl.batch = {};
 
     ctrl.init();
 
     function init () {
-      if (ctrl.ls.isBatchInLS()) {
-        ctrl.batch = ctrl.session.getCurrentBatch();
-        logger.log('batch init', ctrl.batch);
-        ctrl.showForm = false;
-      } else {
-        logger.log('New batch', ctrl.session.getUser());
-      }
+      ctrl.ls.isBatchInLS()
+        .then( function (success) {
+          ctrl.batch = ctrl.session.getCurrentBatch();
+          logger.log('batch init', success);
+          ctrl.showForm = false;
+        }, function (error) {
+          logger.log('New batch', error);
+        });
     }
 
     function storeBatchData () {
@@ -35,15 +37,14 @@
       ctrl.batch.style = ctrl.batchStyle;
       ctrl.batch.alcoholVolume = ctrl.alcVol;
       ctrl.batch.ibu = ctrl.ibu;
-      ctrl.session.setCurrentBatch(ctrl.batch)
-        .then(
-          function (success) {
-            logger.log(success);
-            ctrl.showForm = false;
-          }, function (error) {
-            logger.log(error);
-          }
-        );
+      ctrl.ls.setCurrentBatch(ctrl.batch)
+        .then( function () {
+          logger.log('stored in LS');
+        }, function () {
+          logger.log('not stored in LS');
+        });
+      ctrl.session.setCurrentBatch(ctrl.batch);
+      ctrl.showForm = false;
     }
 
   }

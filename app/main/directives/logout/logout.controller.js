@@ -16,11 +16,12 @@
 
     function logout () {
       logger.log('login out user ');
-      lgt.ls.setUser(null)
+      lgt.ls.setUser('')
         .then(
           function (success) {
+            lgt.session.setUser(null);
             logger.log(success);
-            lgt.ls.setCurrentBatch(null)
+            lgt.ls.setCurrentBatch({})
               .then(
                 function (success) {
                   logger.log(success);

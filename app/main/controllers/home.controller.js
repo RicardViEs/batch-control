@@ -14,10 +14,10 @@
     ctrl.user = ctrl.session.getUser();
     window.session = sessionService;
 
-    init();
+    ctrl.init();
 
     function init () {
-      logger.log('Welcome home ', ctrl.user);
+      logger.log('Welcome home ', ctrl.session.getUser());
       ctrl.drawGraphic();
     }
 
