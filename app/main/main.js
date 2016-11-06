@@ -40,12 +40,12 @@ angular.module('main', [
   var session = sessionService;
   var ls = bCLocalStorage;
 
-  if (ls.isUserInLS) {
+  if (ls.isUserInLS()) {
     logger.log('user already logged');
     ls.getUser()
       .then(function (success) {
         session.setUser(success);
-        if (ls.isBatchInLS) {
+        if (ls.isBatchInLS()) {
           ls.getCurrentBatch()
             .then( function (success) {
               session.setCurrentBatch(success);

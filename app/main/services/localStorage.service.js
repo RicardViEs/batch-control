@@ -31,11 +31,11 @@
     function isBatchInLS () {
       localforage.getItem('currentBatch', function (error, value) {
         logger.log('is batch in LS. ', value);
-        if (error === null && value !== null) {
-          logger.log(value);
+        if (error === null && value !== null && value.name !== '') {
+          logger.log('batch : ', value);
           return true;
         } else {
-          logger.log(error);
+          logger.log('error : ', error);
           return false;
         }
       });

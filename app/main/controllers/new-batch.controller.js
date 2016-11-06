@@ -21,7 +21,7 @@
     ctrl.init();
 
     function init () {
-      if (ctrl.ls.isBatchInLS) {
+      if (ctrl.ls.isBatchInLS()) {
         ctrl.batch = ctrl.session.getCurrentBatch();
         logger.log('batch init', ctrl.batch);
         ctrl.showForm = false;
